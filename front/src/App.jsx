@@ -11,6 +11,11 @@ import Cards from './components/Cards.jsx';
 //import characters, { Rick } from './data.js';
 import Nav from './components/Nav';
 
+import {Routes,Route} from 'react-router-dom'
+import About from './components/About.jsx'
+import Detail from './components/Detail'
+import Error from './components/Error'
+
 const example = {
   id: 1,
   name: 'Rick Sanchez',
@@ -67,7 +72,7 @@ function App() {
     <div>
       {/* Lo que está dentro de Nav lo agregué */}
       <Nav onSearch={onSearch}/>
-      <Cards characters={characters} onClose={onClose}/>
+      {/* <Cards characters={characters} onClose={onClose}/> */}
       {/* <Card
         id={Rick.id}
         name={Rick.name}
@@ -77,6 +82,17 @@ function App() {
         origin={Rick.origin.name}
         image={Rick.image}
         onClose={() => window.alert('Emulamos que se cierra la card')} /> */}
+          
+      
+      <Routes>
+          <Route path='/about' element={<About/>}/>
+          <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
+          <Route path='/detail/:id' element={<Detail/>}/>
+          <Route path='/*' element={<Error/>}/>
+      </Routes>
+
+        
+        
     </div>
   )
 
@@ -87,3 +103,4 @@ function App() {
 
 export default App
 
+//path='*' para que se muestre en todas las rutas

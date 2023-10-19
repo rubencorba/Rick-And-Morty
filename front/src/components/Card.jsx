@@ -1,8 +1,12 @@
+import { Link } from "react-router-dom";
+
 const Card = ({id, name, status, gender, species, origin, image, onClose}) => {
    return (
       <div>
-         {/* agregué id por lo mismo que Cards */}
          <button onClick={()=>onClose(id)}>X</button>
+         <Link to={`/detail/${id}`} >
+            <h3 className="card-name">{name}</h3>
+         </Link>
          <h2>Nombre: {name}</h2>
          <h2>Especie: {species}</h2>
          <h2>Status: {status}</h2>
@@ -14,5 +18,3 @@ const Card = ({id, name, status, gender, species, origin, image, onClose}) => {
 };
 
 export default Card;
-
-//

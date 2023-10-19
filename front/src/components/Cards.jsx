@@ -25,5 +25,3 @@ const Cards = ({characters,onClose})=> {
 };
 
 export default Cards;
-
-//
