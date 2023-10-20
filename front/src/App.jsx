@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -11,10 +11,11 @@ import Cards from './components/Cards.jsx';
 //import characters, { Rick } from './data.js';
 import Nav from './components/Nav';
 
-import {Routes,Route} from 'react-router-dom'
+import {Routes,Route,useLocation,useNavigate} from 'react-router-dom'
 import About from './components/About.jsx'
 import Detail from './components/Detail'
 import Error from './components/Error'
+import Form from './components/Form'
 
 const example = {
   id: 1,
@@ -49,6 +50,21 @@ function App() {
     setCharacters(resul);
   }
 
+const navigate = useNavigate();
+const [access, setAccess] = useState(false);
+const EMAIL = 'rubencorba@gmail.com';
+const PASSWORD = '1234567';
+
+function login(userData) {
+   if (userData.password === PASSWORD && userData.email === EMAIL) {
+      setAccess(true);
+      navigate('/home');
+   }
+}
+useEffect(() => {
+  !access && navigate('/');
+}, [access]);
+
   const onSearch=(id)=> {
     let b=0;
     axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-rubencorba`).then(
@@ -68,10 +84,12 @@ function App() {
     );
  }
 
+ let location=useLocation();
   return (
     <div>
       {/* Lo que está dentro de Nav lo agregué */}
-      <Nav onSearch={onSearch}/>
+      {location.pathname!=='/'? (<Nav onSearch={onSearch}/>):(<>Welcome</>)}
+      {/* <Nav onSearch={onSearch}/> */}
       {/* <Cards characters={characters} onClose={onClose}/> */}
       {/* <Card
         id={Rick.id}
@@ -85,6 +103,7 @@ function App() {
           
       
       <Routes>
+          <Route path='/' element={<Form login={login}/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
           <Route path='/detail/:id' element={<Detail/>}/>
