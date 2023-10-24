@@ -11,6 +11,9 @@ const Nav= ({onSearch})=>{
             <Link to='/Home'>
                 <button>Home</button>
             </Link>
+            <Link to='/favorites'>
+                <button>Favorites</button>
+            </Link>
             
             {/* <button onClick={()=><Link to='/Home'/>}>Home</button> */}
             <SearchBar onSearch={onSearch} /* onSearch={(characterID) => window.alert(characterID)} */ />

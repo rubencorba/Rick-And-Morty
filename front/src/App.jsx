@@ -4,11 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 import axios from 'axios'
-
-//import Card from './components/Card.jsx';
 import Cards from './components/Cards.jsx';
-//import SearchBar from './components/SearchBar.jsx';
-//import characters, { Rick } from './data.js';
 import Nav from './components/Nav';
 
 import {Routes,Route,useLocation,useNavigate} from 'react-router-dom'
@@ -16,6 +12,11 @@ import About from './components/About.jsx'
 import Detail from './components/Detail'
 import Error from './components/Error'
 import Form from './components/Form'
+import Favorites from './components/Favorites'
+
+import { removeFav } from "./redux/action"
+import { useDispatch } from "react-redux";
+
 
 const example = {
   id: 1,
@@ -37,17 +38,14 @@ const example = {
 
 function App() {
 
-  const [characters,setCharacters]= useState([])
+  const dispatch = useDispatch(); 
 
-  /* const onSearch= ()=> {
-    return (
-      setCharacters(characters.concat(example))
-    );
-  } */
+  const [characters,setCharacters]= useState([])
 
   const onClose= (id)=>{
     const resul= characters.filter((personaje)=> personaje.id!==Number(id));
     setCharacters(resul);
+    dispatch(removeFav(id)) //Luego revisar si estaba bien 
   }
 
 const navigate = useNavigate();
@@ -84,33 +82,21 @@ useEffect(() => {
     );
  }
 
- let location=useLocation();
+ let location=useLocation();  //const {pathname} = useLocation()
   return (
     <div>
-      {/* Lo que está dentro de Nav lo agregué */}
+    
       {location.pathname!=='/'? (<Nav onSearch={onSearch}/>):(<>Welcome</>)}
-      {/* <Nav onSearch={onSearch}/> */}
-      {/* <Cards characters={characters} onClose={onClose}/> */}
-      {/* <Card
-        id={Rick.id}
-        name={Rick.name}
-        status={Rick.status}
-        species={Rick.species}
-        gender={Rick.gender}
-        origin={Rick.origin.name}
-        image={Rick.image}
-        onClose={() => window.alert('Emulamos que se cierra la card')} /> */}
-          
+      {/* //{pathname !== '/' && <Nav onSearch={onSearch}/>} */}
       
       <Routes>
           <Route path='/' element={<Form login={login}/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
           <Route path='/detail/:id' element={<Detail/>}/>
+          <Route path='/favorites' element={<Favorites/>}/>
           <Route path='/*' element={<Error/>}/>
       </Routes>
-
-        
         
     </div>
   )
