@@ -17,25 +17,6 @@ import Favorites from './components/Favorites'
 import { removeFav } from "./redux/action"
 import { useDispatch } from "react-redux";
 
-
-const example = {
-  id: 1,
-  name: 'Rick Sanchez',
-  status: 'Alive',
-  species: 'Human',
-  gender: 'Male',
-  origin: {
-     name: 'Earth (C-137)',
-     url: 'https://rickandmortyapi.com/api/location/1',
-  },
-  image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-};
-
-
-
-
-
-
 function App() {
 
   const dispatch = useDispatch(); 
@@ -67,9 +48,9 @@ useEffect(() => {
     let b=0;
     axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-rubencorba`).then(
        ({ data }) => {
-        characters.forEach((personaje) => personaje.id==id? b=1:b=0);
+        characters.map((personaje) => personaje.id==id? b=1:null);
         if (b==1){
-          alert("Ya existe");
+          alert("Este personaje ya se encuentra en pantalla");
         }else{
           if (data.name) {
             setCharacters((oldChars) => [...oldChars, data]);
@@ -86,8 +67,8 @@ useEffect(() => {
   return (
     <div>
     
-      {location.pathname!=='/'? (<Nav onSearch={onSearch}/>):(<>Welcome</>)}
-      {/* //{pathname !== '/' && <Nav onSearch={onSearch}/>} */}
+      {/* {location.pathname!=='/'? (<Nav onSearch={onSearch}/>):(<>Welcome</>)} */}
+      {location.pathname !== '/' && <Nav onSearch={onSearch}/>}
       
       <Routes>
           <Route path='/' element={<Form login={login}/>}/>

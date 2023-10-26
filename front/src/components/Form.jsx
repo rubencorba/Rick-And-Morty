@@ -27,7 +27,11 @@ const Form =({login})=>{
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <>
+            <div>
+                Bienvenidos!!
+            </div>
+            <form onSubmit={handleSubmit}>
             <label >Email: </label>
             <input type="text" value={userData.email} name='email' onChange={handleChange}/>
             {userData.email !== ''? <>{errors.email}</> : ''} {/* Para que me muestre X estando vacío usar errors no userData */}
@@ -39,6 +43,8 @@ const Form =({login})=>{
             <button type="submit" /* onClick={handleSubmit} Así había que hacer */>Submit</button>
 
         </form>
+        </>
+        
     )
 }
 export default Form;

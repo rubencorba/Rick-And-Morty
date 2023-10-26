@@ -33,7 +33,7 @@ const Card = ({id, name, status, gender, species, origin, image, onClose}) => {
             setIsfav(true);
          }
       });
-  }, [myFavorites]);
+   }, [myFavorites]);
    
 
    return (
