@@ -76,7 +76,7 @@ useEffect(() => {
           <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
           <Route path='/detail/:id' element={<Detail/>}/>
           <Route path='/favorites' element={<Favorites/>}/>
-          <Route path='/*' element={<Error/>}/>
+          <Route path='*' element={<Error/>}/>
       </Routes>
         
     </div>
