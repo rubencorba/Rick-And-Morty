@@ -7,7 +7,7 @@ const About=()=>{
         name:'Rubén Corbalán',
         status:'alive',
         species:'human',
-        gender: 'male',
+        gender: 'Male',
         origin:{
             name:'Earth (C-137)'
         },

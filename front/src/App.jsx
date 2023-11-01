@@ -46,7 +46,7 @@ useEffect(() => {
 
   const onSearch=(id)=> {
     let b=0;
-    axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-rubencorba`).then(
+    axios(`http://127.0.0.1:3001/rickandmorty/character/${id}`).then(
        ({ data }) => {
         characters.map((personaje) => personaje.id==id? b=1:null);
         if (b==1){
