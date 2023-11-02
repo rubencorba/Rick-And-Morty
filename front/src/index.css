@@ -56,6 +56,35 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+.card-container {
+  display: flex;
+  flex-direction: row; /* Esto establece la dirección de los elementos en una fila */
+  align-items: center; /* Alinea los elementos verticalmente en el centro si es necesario */
+  /* Otros estilos de tu elección para el contenedor */
+  position: relative;
+  
+}
+.card-button-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.card-button-container2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 tarjetas en una fila */
+  gap: 20px; /* Espacio entre las tarjetas */
+  /* Otros estilos de tu elección para el contenedor de la cuadrícula */
+}
+.nombreDaCarta {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
 
 @media (prefers-color-scheme: light) {
   :root {

@@ -26,7 +26,7 @@ function App() {
   const onClose= (id)=>{
     const resul= characters.filter((personaje)=> personaje.id!==Number(id));
     setCharacters(resul);
-    dispatch(removeFav(id)) //Luego revisar si estaba bien 
+    dispatch(removeFav(id));
   }
 
 const navigate = useNavigate();
@@ -46,7 +46,7 @@ useEffect(() => {
 
   const onSearch=(id)=> {
     let b=0;
-    axios(`http://127.0.0.1:3001/rickandmorty/character/${id}`).then(
+    axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-rubencorba`).then(
        ({ data }) => {
         characters.map((personaje) => personaje.id==id? b=1:null);
         if (b==1){

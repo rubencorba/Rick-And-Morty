@@ -13,17 +13,16 @@ export const reducer= (state=initialState,action)=>{
         case ADD_FAV:
             return ({
                 ...state,allCharacters: [...state.allCharacters,action.payload],
-                myFavorites: state.allCharacters
+                myFavorites: [...state.allCharacters,action.payload]
             })
         case REMOVE_FAV:
             return ({
-                /* Cambié favorites por allCharacters */
-                ...state,allCharacters:state.allCharacters.filter((pers)=>pers.id != action.payload),
-                myFavorites: state.allCharacters
+                ...state, myFavorites: state.myFavorites.filter((pers)=>pers.id != action.payload),
+                allCharacters: state.allCharacters.filter((pers)=>pers.id != action.payload)
             })
         case FILTER:
             if (action.payload=="All"){
-                return {...state,myFavorites: state.allCharacters}
+                return {...state,myFavorites: state.allCharacters} 
             }
             return ({
                 ...state,myFavorites: state.allCharacters.filter((pers)=>pers.gender == action.payload)

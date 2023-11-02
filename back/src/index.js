@@ -1,5 +1,6 @@
 let http = require ('http');
 const characters = require ('./utils/data')
+const getCharById = require ('./controllers/getCharById')
 
 http.createServer((request,response)=>{
     response.setHeader('Access-Control-Allow-Origin', '*');
@@ -7,20 +8,10 @@ http.createServer((request,response)=>{
     
     if (request.url.includes("/rickandmorty/character")){
         const id = request.url.split('/').at(-1);
-        const personaje=characters.find((char)=>char.id==Number(id));
-        
-
-        if(personaje){
-            return (response
-                .writeHead(200,{'Content-Type':'application/json'})
-                .end(JSON.stringify(personaje))
-            )
-        }
-        return (response
-            .writeHead(404,{'Content-Type':'application/json'})
-            .end(JSON.stringify({error:'No existen personajes con ese IDD'}))
-        )
-
+        getCharById(response,id)
+        /* const personaje=characters.find((char)=>char.id==Number(id));
+        response.writeHead(200,{'Content-Type':'application/json'}) 
+        response.end(JSON.stringify(personaje)) */                     
     }
 
-}).listen(3001,'127.0.0.1')
+}).listen(3001,'localhost')

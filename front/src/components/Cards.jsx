@@ -2,7 +2,7 @@ import Card from './Card';
 //Agregué id como parametro por consigna 4 ej6
 const Cards = ({characters,onClose})=> {
    return(
-      <div>
+      <div className="card-grid">
          {
             characters.map(({id, name, status, species, gender, origin, image})=>{
                return  <Card

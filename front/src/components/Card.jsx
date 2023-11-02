@@ -6,17 +6,17 @@ import { useState, useEffect } from "react";
 
 const Card = ({id, name, status, gender, species, origin, image, onClose}) => {
 
-   const myFavorites = useSelector((state) => state.myFavorites);
+   const myFavorites = useSelector((state) => state.allCharacters);
    const dispatch = useDispatch();
 
-   const addFav_=()=>{
+   /* const addFav_=()=>{
       dispatch(addFav({id, name, status, gender, species, origin, image, onClose}))
    }
    const removeFav_=()=>{
       dispatch(removeFav(id))
    }
 
-   const [isFav,setIsfav]= useState(false)
+   
 
    const handleFavorite=()=>{
       if (isFav){
@@ -26,19 +26,26 @@ const Card = ({id, name, status, gender, species, origin, image, onClose}) => {
          setIsfav(true);
          addFav_();
       }
-   }
+   } */
+   const [isFav,setIsFav]= useState(false)
+   
+   const handleFavorite = () => {
+      isFav ? dispatch(removeFav(id)) : dispatch(addFav({ id, name, status, gender, species, origin, image, onClose }))
+      setIsFav(!isFav)
+   };
+   
    useEffect(() => {
       myFavorites.forEach((fav) => {
          if (fav.id === id) {
-            setIsfav(true);
+            setIsFav(true);
          }
       });
    }, [myFavorites]);
    
 
    return (
-      <div>
-         <div>
+      <div className="card-container">
+         <div className="card-button-container">
             {
                isFav ? (
                   <button onClick={handleFavorite}>❤️</button>
@@ -47,16 +54,17 @@ const Card = ({id, name, status, gender, species, origin, image, onClose}) => {
                )
             }
          </div>
-         <button onClick={()=>onClose(id)}>X</button>
+         <button className="card-button-container2" onClick={()=>onClose(id)}>X</button>
          <Link to={`/detail/${id}`} >
-            <h3 className="card-name">{name}</h3>
+            {/* <h3 className="card-name">{name}</h3> */}
+            <img src={image } alt={name} />
          </Link>
-         <h2>Nombre: {name}</h2>
-         <h2>Especie: {species}</h2>
-         <h2>Status: {status}</h2>
-         <h2>Gender: {gender}</h2>
-         <h2>Origin: {origin}</h2>
-         <img src={image } alt={name} />
+         <h5 className="nombreDaCarta">Nombre: {name}</h5>
+         {/* <h5>Especie: {species}</h5>
+         <h5>Status: {status}</h5>
+         <h5>Gender: {gender}</h5>
+         <h5>Origin: {origin}</h5> */}
+         
       </div>
    );
 };

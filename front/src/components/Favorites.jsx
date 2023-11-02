@@ -27,13 +27,13 @@ const Favorites =()=>{
                <option value="Descendente">Descendente</option>
             </select>
             <select onChange={handleFilter}>
+               <option value="All">All</option>
                <option value="Male">Male</option>
                <option value="Female">Female</option>
                <option value="Genderless">Genderless</option>
                <option value="unknown">unknown</option>
-               <option value="All">All</option>
             </select>
-            <div>
+            <div className="card-container">
                {
                   myFavorites.map(({id, name, status, species, gender, origin, image,onClose})=>{
                      return  <Card
