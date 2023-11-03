@@ -71,9 +71,9 @@ useEffect(() => {
       {location.pathname !== '/' && <Nav onSearch={onSearch}/>}
       
       <Routes>
-          <Route path='/' element={<Form login={login}/>}/>
+          <Route path='/'  element={<Form login={login}/>}/>
           <Route path='/about' element={<About/>}/>
-          <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
+          <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>} />
           <Route path='/detail/:id' element={<Detail/>}/>
           <Route path='/favorites' element={<Favorites/>}/>
           <Route path='*' element={<Error/>}/>
