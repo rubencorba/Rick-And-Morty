@@ -6,7 +6,9 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  /* background-color: #242424; */
+  /* background-color: #005900;
+  background-color: #00A9E0;
+  background-color: #001F3F; */
   /* background-color: #00008B; */
 
   font-synthesis: none;
@@ -37,7 +39,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
 
-  background-image: url('https://s.yimg.com/ny/api/res/1.2/Y4.u2g_xtflEEkg5xnr_7Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTI0MDA7aD0xNDI2O2NmPXdlYnA-/https://s.yimg.com/os/creatr-uploaded-images/2023-10/4456f1c0-69e5-11ee-a97f-8c073955ed8d'); /*imagen de fondo */
+  /* background-image: url('https://s.yimg.com/ny/api/res/1.2/Y4.u2g_xtflEEkg5xnr_7Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTI0MDA7aD0xNDI2O2NmPXdlYnA-/https://s.yimg.com/os/creatr-uploaded-images/2023-10/4456f1c0-69e5-11ee-a97f-8c073955ed8d'); */ /*imagen de fondo */
   background-size: cover; /* Ajusta el tamaño de la imagen al tamaño de la ventana del navegador */
   background-position: center; /* Centra la imagen en la ventana del navegador */
   background-repeat: no-repeat;

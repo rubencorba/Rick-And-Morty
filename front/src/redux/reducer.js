@@ -11,15 +11,14 @@ const initialState={
 export const reducer= (state=initialState,action)=>{
     switch(action.type){
         case ADD_FAV:
-            return ({
-                ...state,allCharacters: [...state.allCharacters,action.payload],
-                myFavorites: [...state.allCharacters,action.payload]
-            })
-        case REMOVE_FAV:
+            return { ...state, myFavorites: action.payload, allCharacters: action.payload };
+        /* case REMOVE_FAV:
             return ({
                 ...state, myFavorites: state.myFavorites.filter((pers)=>pers.id != action.payload),
                 allCharacters: state.allCharacters.filter((pers)=>pers.id != action.payload)
-            })
+            }) */
+        case REMOVE_FAV:
+            return { ...state, myFavorites: action.payload, allCharacters: action.payload  }; //No hicieron cambios en allCharacters
         case FILTER:
             if (action.payload=="All"){
                 return {...state,myFavorites: state.allCharacters} 
