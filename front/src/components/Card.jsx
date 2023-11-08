@@ -53,12 +53,12 @@ const Card = ({id, name, status, gender, species, origin, image, onClose}) => {
 
          <div class="flip-card-back">
             <button className="card-button-container2" onClick={()=>onClose(id)}>X</button>
-            <div className="card-button-container">
+            <div /* className="card-button-container" */>
                {
                   isFav ? (
-                     <button onClick={handleFavorite}>❤️</button>
+                     <button className="circle" onClick={handleFavorite}>❤️</button>
                   ) : (
-                     <button onClick={handleFavorite}>🤍</button>
+                     <button className="circle" onClick={handleFavorite}>🤍</button>
                   )
                }
             </div>

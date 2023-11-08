@@ -4,24 +4,24 @@ import {Link} from 'react-router-dom'
 const Nav= ({onSearch})=>{
     return (
         
-        <div>
-            <Link to='/About'>
+        <div class="navStyle">
+            <Link class="aboutStyle" to='/About'>
                 <button>About</button>
             </Link>
-            <Link to='/Home'>
+            <Link class="homeStyle" to='/Home'>
                 <button>Home</button>
             </Link>
-            <Link to='/favorites'>
+            <Link class="favoritesStyle" to='/favorites'>
                 <button>Favorites</button>
             </Link>
-            <Link to='/'>
+
+
+            
+            <SearchBar onSearch={onSearch}  />
+            <button  class="randomStyle" onClick={()=>onSearch(Math.floor(Math.random()*826))}>Random</button>
+            <Link class="logOutStyle" to='/'>
                 <button>LogOut</button>
             </Link>
-
-
-            {/* <button onClick={()=><Link to='/Home'/>}>Home</button> */}
-            <SearchBar onSearch={onSearch} /* onSearch={(characterID) => window.alert(characterID)} */ />
-            <button  onClick={()=>onSearch(Math.floor(Math.random()*826))}>Agregar personaje random</button>
         </div>
         )
 }

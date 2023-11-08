@@ -33,7 +33,7 @@ const Favorites =({onClose})=>{
                <option value="Genderless">Genderless</option>
                <option value="unknown">unknown</option>
             </select>
-            <div className="card-container">
+            <div className="card-grid">
                {
                   myFavorites.map(({id, name, status, species, gender, origin, image})=>{
                      return  <Card
@@ -43,7 +43,7 @@ const Favorites =({onClose})=>{
                      species={species}
                      gender={gender}
                      image={image}
-                     origin={origin.name}
+                     origin={origin}
                      onClose={()=>onClose(id)}
                      id ={id}
                      />

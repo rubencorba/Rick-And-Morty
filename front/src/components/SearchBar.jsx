@@ -15,8 +15,8 @@ const SearchBar = ({onSearch})=> {
 
    return (
       <div>
-         <input type='search' value={id} onChange={handleChange} /> 
-         <button onClick= {()=>{onSearch(id);resetInput()}}>Agregar</button> 
+         <input className='searchStyle' type='search' value={id} onChange={handleChange} placeholder='Introduzca ID'/> 
+         <button className='agregarStyle' onClick= {()=>{onSearch(id);resetInput()}}>Agregar</button> 
       </div>
    );
 };

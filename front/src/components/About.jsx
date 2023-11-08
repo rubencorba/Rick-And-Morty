@@ -1,4 +1,4 @@
-import perfil from './paPerfilp.jpg'
+import perfil from './perfilk2.jpg'
 import Card from './Card'
 
 const About=()=>{

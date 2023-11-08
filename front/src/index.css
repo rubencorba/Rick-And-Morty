@@ -69,15 +69,30 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-.card-button-container {
+/* .card-button-container {
   position: absolute;
   top: 0;
   left: 0;
-}
+  
+} */
 .card-button-container2 {
   position: absolute;
   top: 0;
   right: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.circle{
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  line-height:28px;
+  padding: 0.2em 0.2em;
 }
 .card-grid {
   display: flex;
@@ -100,8 +115,11 @@ button:focus-visible {
   height: 8rem; */
 }
 .nombreDaCarta {
+  text-decoration: underline;
   margin-top: 50px;
   position: medium;
+  border: 5px solid transparent;
+  color:indigo
   /* bottom: 0;
   left: 0; */
 }
@@ -123,20 +141,53 @@ button:focus-visible {
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
   border-radius: 30px;
+  
 }
 .flip-card-back {
   /* position: top; */
   
   /* display: grid; */
   
-  background-color: dodgerblue;
-  color: white;
+  background-color: rgba(126, 247, 110, 0.342);
+  color: black;
   transform: rotateY(180deg);
   width: 300px;
   height: 300px;
+  border: 3px solid transparent;
+  border-color: #535bf2;
 }
 .imageDaCarta{
   border-radius: 30px;
+}
+.navStyle{
+  display: flex;
+  /* flex-direction: row; */
+  padding: 0.1rem;
+  /* background-color:rgba(126, 247, 110, 0.342); */
+  border-bottom: 60px solid transparent;
+  margin-left: 3rem;
+  
+}
+.aboutStyle{
+  margin-right: 1rem;
+}
+.homeStyle{
+  margin-inline: 1rem;
+}
+.favoritesStyle{
+  margin-inline: 1rem;
+}
+.searchStyle{
+  margin-left: 19rem;
+}
+.agregarStyle{
+  margin-inline: 1rem;
+}
+.randomStyle{
+  margin-right: 2rem;
+}
+.logOutStyle{
+  margin-inline: 1rem;
 }
 
 
