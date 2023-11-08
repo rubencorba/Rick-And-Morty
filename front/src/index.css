@@ -189,6 +189,21 @@ button:focus-visible {
 .logOutStyle{
   margin-inline: 1rem;
 }
+.detailStyle{
+  display: flex;
+}
+.imgdetailStyle{
+  width:30rem ;
+  border-radius: 30px;
+  margin-left: 7rem;
+  margin-top: 1rem;
+}
+.detdetStyle{
+  margin-left: 8rem;
+  /* margin-top: 1rem; */
+  text-align: left;
+  color: black;
+}
 
 
 @media (prefers-color-scheme: light) {

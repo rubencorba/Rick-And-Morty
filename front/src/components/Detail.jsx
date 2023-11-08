@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import {useState,useEffect} from "react"
+import portal from "./portal-rick-and-morty.gif"
 
 
 const Detail=()=>{
@@ -27,16 +28,27 @@ const Detail=()=>{
     return(
         <div>
             {character.name? (
-                <div>
-                <h2>Nombre: {character.name}</h2>
-                <h2>Especie: {character.species}</h2>
-                <h2>Status: {character.status}</h2>
-                <h2>Gender: {character.gender}</h2>
-                <h2>Origin: {character.origin.name}</h2>
-                <img src={character.image} width={800} alt={character.name}/>
+                <div className="detailStyle">
+                    <div>
+                    <img className="imgdetailStyle" src={character.image} alt={character.name}/>
+                    </div>
+                    <div className="detdetStyle">
+                    <h1>Name: {character.name}</h1>
+                    <h1>Especie: {character.species}</h1>
+                    <h1>Status: {character.status}</h1>
+                    <h1>Gender: {character.gender}</h1>
+                    <h1>Origin: {character.origin.name}</h1>
+                    </div>
+
+                
+                
             </div>
             ):(
-                <h1>Cargando Información...</h1>
+                <div>
+                    <h1>Cargando Información...</h1>
+                    <img src={portal} alt={"portal"} />
+                </div>
+                
             )}
         </div>
         
