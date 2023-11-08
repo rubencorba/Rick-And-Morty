@@ -39,7 +39,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
 
-  /* background-image: url('https://s.yimg.com/ny/api/res/1.2/Y4.u2g_xtflEEkg5xnr_7Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTI0MDA7aD0xNDI2O2NmPXdlYnA-/https://s.yimg.com/os/creatr-uploaded-images/2023-10/4456f1c0-69e5-11ee-a97f-8c073955ed8d'); */ /*imagen de fondo */
+  background-image: url('https://e1.pxfuel.com/desktop-wallpaper/442/188/desktop-wallpaper-aesthetic-ps4-rick-and-morty-rick-and-morty.jpg'); /*imagen de fondo */
   background-size: cover; /* Ajusta el tamaño de la imagen al tamaño de la ventana del navegador */
   background-position: center; /* Centra la imagen en la ventana del navegador */
   background-repeat: no-repeat;
@@ -69,13 +69,6 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-.card-container {
-  display: flex;
-  flex-direction: row; /* Esto establece la dirección de los elementos en una fila */
-  align-items: center; /* Alinea los elementos verticalmente en el centro si es necesario */
-  position: relative;
-  
-}
 .card-button-container {
   position: absolute;
   top: 0;
@@ -87,14 +80,52 @@ button:focus-visible {
   right: 0;
 }
 .card-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 tarjetas en una fila */
+  display: flex;
+  /* grid-template-columns: repeat(4, 1fr); */ /* 4 tarjetas en una fila */
+  flex-wrap: wrap;
   gap: 20px; /* Espacio entre las tarjetas */
 }
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  
+  perspective: 1000px;
+  
+  
+  /* align-items: center; */ /* Alinea los elementos verticalmente en el centro si es necesario */
+  /* position: relative; */
+  /* width: 4rem;
+  height: 8rem; */
+}
 .nombreDaCarta {
+  position: top;
+  /* bottom: 0;
+  left: 0; */
+}
+.flip-card-inner {
+  /* position: relative; */
+  /* width: 100%;
+  height: 100%; */
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  /* width: 100%;
+  height: 100%; */
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+.flip-card-back {
+  position: top;
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
 }
 
 

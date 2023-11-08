@@ -3,7 +3,7 @@ import Card from "./Card";
 import {FilterCards,OrderCards} from '../redux/action'
 import { useState } from "react";
 
-const Favorites =()=>{
+const Favorites =({onClose})=>{
 
     const myFavorites = useSelector((state) => state.myFavorites);
     
@@ -35,7 +35,7 @@ const Favorites =()=>{
             </select>
             <div className="card-container">
                {
-                  myFavorites.map(({id, name, status, species, gender, origin, image,onClose})=>{
+                  myFavorites.map(({id, name, status, species, gender, origin, image})=>{
                      return  <Card
                      key={id}
                      name={name}

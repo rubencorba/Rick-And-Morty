@@ -44,27 +44,34 @@ const Card = ({id, name, status, gender, species, origin, image, onClose}) => {
    
 
    return (
-      <div className="card-container">
-         <div className="card-button-container">
-            {
-               isFav ? (
-                  <button onClick={handleFavorite}>❤️</button>
-               ) : (
-                  <button onClick={handleFavorite}>🤍</button>
-               )
-            }
+      <div className="flip-card">
+         <div class="flip-card-inner">
+
+         <div class="flip-card-front">
+            <div className="card-button-container">
+               {
+                  isFav ? (
+                     <button onClick={handleFavorite}>❤️</button>
+                  ) : (
+                     <button onClick={handleFavorite}>🤍</button>
+                  )
+               }
+            </div>
+            <button className="card-button-container2" onClick={()=>onClose(id)}>X</button>
+            <Link to={`/detail/${id}`} >
+               <img src={image } alt={name} />
+            </Link>
          </div>
-         <button className="card-button-container2" onClick={()=>onClose(id)}>X</button>
-         <Link to={`/detail/${id}`} >
-            {/* <h3 className="card-name">{name}</h3> */}
-            <img src={image } alt={name} />
-         </Link>
-         <h5 className="nombreDaCarta">Nombre: {name}</h5>
-         {/* <h5>Especie: {species}</h5>
-         <h5>Status: {status}</h5>
-         <h5>Gender: {gender}</h5>
-         <h5>Origin: {origin}</h5> */}
+
+         <div class="flip-card-back">
+            <h3 className="nombreDaCarta">Nombre: {name}</h3>
+            <h5>Especie: {species}</h5>
+            <h5>Status: {status}</h5>
+            <h5>Gender: {gender}</h5>
+            <h5>Origin: {origin}</h5>
+         </div>
          
+         </div>
       </div>
    );
 };

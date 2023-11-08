@@ -29,48 +29,46 @@ function App() {
     dispatch(removeFav(id));
   }
 
-const navigate = useNavigate();
-const [access, setAccess] = useState(false);
-/* const EMAIL = 'rubencorba@gmail.com';
-const PASSWORD = '1234567'; */
+  const navigate = useNavigate();
+  const [access, setAccess] = useState(false);
 
-/* function login(userData) {
-   if (userData.password === PASSWORD && userData.email === EMAIL) {
-      setAccess(true);
-      navigate('/home');
-   }
-} */
-function login(userData) {
-  const { email, password } = userData;
-  const URL = 'http://localhost:3001/rickandmorty/login/';
-  axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-     const { access } = data;
-     setAccess(access);
-     access && navigate('/home');
-  });
+const login= async (userData)=> {
+  try {
+    const { email, password } = userData;
+    const URL = 'http://localhost:3001/rickandmorty/login/';
+    const {data}= await axios(URL + `?email=${email}&password=${password}`)
+    const { access } = data;
+    setAccess(access);
+    access && navigate('/home');
+    
+  } catch (error) {
+    throw new Error('Error!');
+  }
+  
 }
 
 useEffect(() => {
   !access && navigate('/');
 }, [access]);
 
-  const onSearch=(id)=> {
-    let b=0;
-    axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-rubencorba`).then(
-       ({ data }) => {
-        characters.map((personaje) => personaje.id==id? b=1:null);
-        if (b==1){
-          alert("Este personaje ya se encuentra en pantalla");
-        }else{
-          if (data.name) {
-            setCharacters((oldChars) => [...oldChars, data]);
-         } else {
-            window.alert('¡No hay personajes con este ID!');
-         }
-        }
-          
+  const onSearch= async (id)=> {
+    try {
+      let b=0;
+      const {data}= await axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-rubencorba`)
+      characters.map((personaje) => personaje.id===Number(id)? b=1:null);
+      if (b==1){
+        alert("Este personaje ya se encuentra en pantalla");
+      }else{
+        if (data.name) {
+          setCharacters((oldChars) => [...oldChars, data]);
+       } else {
+          window.alert('¡No hay personajes con este ID!');
        }
-    );
+      }
+      
+    } catch (error) {
+      throw new Error('Error!');
+    }
  }
 
  let location=useLocation();  //const {pathname} = useLocation()
@@ -85,7 +83,7 @@ useEffect(() => {
           <Route path='/about' element={<About/>}/>
           <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>} />
           <Route path='/detail/:id' element={<Detail/>}/>
-          <Route path='/favorites' element={<Favorites/>}/>
+          <Route path='/favorites' element={<Favorites onClose={onClose}/>}/>
           <Route path='*' element={<Error/>}/>
       </Routes>
         
