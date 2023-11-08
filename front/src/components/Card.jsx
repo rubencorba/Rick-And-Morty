@@ -48,6 +48,11 @@ const Card = ({id, name, status, gender, species, origin, image, onClose}) => {
          <div class="flip-card-inner">
 
          <div class="flip-card-front">
+               <img class="imageDaCarta" src={image } alt={name} />
+         </div>
+
+         <div class="flip-card-back">
+            <button className="card-button-container2" onClick={()=>onClose(id)}>X</button>
             <div className="card-button-container">
                {
                   isFav ? (
@@ -57,14 +62,9 @@ const Card = ({id, name, status, gender, species, origin, image, onClose}) => {
                   )
                }
             </div>
-            <button className="card-button-container2" onClick={()=>onClose(id)}>X</button>
             <Link to={`/detail/${id}`} >
-               <img src={image } alt={name} />
+               <h3 className="nombreDaCarta">Name: {name}</h3>
             </Link>
-         </div>
-
-         <div class="flip-card-back">
-            <h3 className="nombreDaCarta">Nombre: {name}</h3>
             <h5>Especie: {species}</h5>
             <h5>Status: {status}</h5>
             <h5>Gender: {gender}</h5>
