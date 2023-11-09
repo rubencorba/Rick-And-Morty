@@ -204,6 +204,40 @@ button:focus-visible {
   text-align: left;
   color: black;
 }
+.orderStyle{
+  margin-bottom: 2rem;
+  
+}
+.selectStyle{
+  margin-right: 2rem;
+  border-radius: 8px;
+  background-color: #535bf2;
+  width:10rem
+}
+.formStyle{
+  width:19rem;
+  height: 20rem;
+  /* display: grid; */
+  position:relative;
+  margin-top: 5rem;
+  margin-left: 26rem;
+  border: 3px solid transparent;
+  border-color: #535bf2;
+  border-radius: 2rem;
+  padding: 2rem;
+}
+.formformStyle{
+  margin-top: 2rem;
+}
+label{
+  display: inline-block;
+  width: 7rem;
+  margin-bottom: 2rem;
+}
+.input1{
+  background-color: rgba(255, 255, 255, 0.475);
+  
+}
 
 
 @media (prefers-color-scheme: light) {

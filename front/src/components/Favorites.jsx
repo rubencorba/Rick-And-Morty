@@ -21,18 +21,20 @@ const Favorites =({onClose})=>{
     
 
     return (
-            <>
-            <select onChange={handleOrder}>
-               <option value="Ascendente">Ascendente</option>
-               <option value="Descendente">Descendente</option>
-            </select>
-            <select onChange={handleFilter}>
-               <option value="All">All</option>
-               <option value="Male">Male</option>
-               <option value="Female">Female</option>
-               <option value="Genderless">Genderless</option>
-               <option value="unknown">unknown</option>
-            </select>
+            <div >
+               <div className="orderStyle" >
+                  <select className="selectStyle" onChange={handleOrder}>
+                     <option value="Ascendente">Ascendente</option>
+                     <option value="Descendente">Descendente</option>
+                  </select>
+                  <select className="selectStyle" onChange={handleFilter}>
+                     <option value="All">All</option>
+                     <option value="Male">Male</option>
+                     <option value="Female">Female</option>
+                     <option value="Genderless">Genderless</option>
+                     <option value="unknown">unknown</option>
+                  </select>
+               </div>
             <div className="card-grid">
                {
                   myFavorites.map(({id, name, status, species, gender, origin, image})=>{
@@ -51,7 +53,7 @@ const Favorites =({onClose})=>{
                }
       
             </div>
-            </>
+            </div>
     )
 }
 export default Favorites

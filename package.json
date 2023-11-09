@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "react-router-dom": "^6.17.0"
+    "jest": "^29.7.0",
+    "react-router-dom": "^6.17.0",
+    "supertest": "^6.3.3",
+    "test": "jest --detectOpenHandles"
   }
 }

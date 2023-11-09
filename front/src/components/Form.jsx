@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react";
 import Validation from "./Validation";
+import tittlef from './RyM.png'
 
 const Form =({login})=>{
 
@@ -34,17 +35,17 @@ const Form =({login})=>{
     },[]); */
 
     return (
-        <div>
+        <div className="formStyle">
             <div>
-                Bienvenidos!!
+                <img src={tittlef} alt="Bienvenido!!" />
             </div>
-            <form onSubmit={handleSubmit}>
+            <form className="formformStyle" onSubmit={handleSubmit}>
             <label >Email: </label>
-            <input type="text" value={userData.email} name='email' onChange={handleChange}/>
+            <input placeholder='example@gmail.com' className="input1" type="text" value={userData.email} name='email' onChange={handleChange}/>
             {userData.email !== ''? <>{errors.email}</> : ''} {/* Para que me muestre X estando vacío usar errors no userData */}
             <br />
             <label >Password: </label>
-            <input type="password" value={userData.password} name='password' onChange={handleChange}/>
+            <input placeholder='*******' type="password" className="input1" value={userData.password} name='password' onChange={handleChange}/>
             {userData.password !== ''? <>{errors.password}</> : ''}
             <br />
             <button type="submit" /* onClick={handleSubmit} Así había que hacer */>Submit</button>
