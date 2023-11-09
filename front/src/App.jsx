@@ -13,6 +13,7 @@ import Detail from './components/Detail'
 import Error from './components/Error'
 import Form from './components/Form'
 import Favorites from './components/Favorites'
+import Juego from './components/Juego.jsx'
 
 import { removeFav } from "./redux/action"
 import { useDispatch } from "react-redux";
@@ -71,6 +72,22 @@ useEffect(() => {
     }
  }
 
+ const [characters2,setCharacters2]= useState([])
+ 
+ const barajar=async()=>{
+  /* setCharacters2([]) */
+    for (let i = 0; i < 6; i++) {
+      const id=Math.floor(Math.random()*500);
+      const {data}= await axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-rubencorba`)
+      setCharacters2((oldChars) => [...oldChars, data.image]);
+      setCharacters2((oldChars) => [...oldChars, data.image]);
+    }
+    setCharacters2(characters2.sort(()=>Math.random() - 0.5))
+    return characters2;
+ }
+
+
+
  let location=useLocation();  //const {pathname} = useLocation()
   return (
     <div>
@@ -84,6 +101,7 @@ useEffect(() => {
           <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>} />
           <Route path='/detail/:id' element={<Detail/>}/>
           <Route path='/favorites' element={<Favorites onClose={onClose}/>}/>
+          <Route path='/juego' element={<Juego barajar={barajar} characters2={characters2}/>}/>
           <Route path='*' element={<Error/>}/>
       </Routes>
         

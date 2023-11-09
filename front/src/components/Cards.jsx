@@ -13,8 +13,7 @@ const Cards = ({characters,onClose})=> {
                gender={gender}
                image={image}
                origin={origin.name}
-               /* Cambié lo del comentario */
-               onClose={()=>onClose(id)} /* window.alert('Emulamos que se cierra la card') */
+               onClose={()=>onClose(id)}
                id ={id}
                />
             })

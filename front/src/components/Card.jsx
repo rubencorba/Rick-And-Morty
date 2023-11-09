@@ -9,24 +9,6 @@ const Card = ({id, name, status, gender, species, origin, image, onClose}) => {
    const myFavorites = useSelector((state) => state.allCharacters);
    const dispatch = useDispatch();
 
-   /* const addFav_=()=>{
-      dispatch(addFav({id, name, status, gender, species, origin, image, onClose}))
-   }
-   const removeFav_=()=>{
-      dispatch(removeFav(id))
-   }
-
-   
-
-   const handleFavorite=()=>{
-      if (isFav){
-         setIsfav(false);
-         removeFav_();
-      }else{
-         setIsfav(true);
-         addFav_();
-      }
-   } */
    const [isFav,setIsFav]= useState(false)
    
    const handleFavorite = () => {
