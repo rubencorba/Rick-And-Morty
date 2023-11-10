@@ -35,7 +35,7 @@ const Card = ({id, name, status, gender, species, origin, image, onClose}) => {
 
          <div class="flip-card-back">
             <button className="card-button-container2" onClick={()=>onClose(id)}>X</button>
-            <div /* className="card-button-container" */>
+            <div>
                {
                   isFav ? (
                      <button className="circle" onClick={handleFavorite}>❤️</button>

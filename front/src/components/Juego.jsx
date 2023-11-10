@@ -1,55 +1,57 @@
-import imagen from './perfilk2.jpg'
+
 import portal from './portal-rick-and-morty.gif'
 import { useEffect,useState } from 'react'
 import axios from 'axios'
+import CardDeJuego from './CardDeJuego'
 
-const Juego=(/* {barajar,characters2} */)=>{
+const Juego=()=>{
 
     const [characters2,setCharacters2]= useState([])
-    
 
-    /* useEffect(() => {
+    let d=0
+    useEffect(()=>{
         
-        async function baraj(){
-            for (let i = 0; i < 6; i++) {
-                const id=Math.floor(Math.random()*500);
-                const {data}= await axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-rubencorba`)
-                setCharacters2((oldChars) => [...oldChars, data.image]);
-                setCharacters2((oldChars) => [...oldChars, data.image]);
-              }
-              setCharacters2(characters2.sort(()=>Math.random() - 0.5))
-              return;
-        }
-        characters2[11]?null:baraj();
-        return setCharacters2([]);
-     }, []); */
-
-     useEffect(()=>{
         mezclar();
-     },[characters2])
+    },[characters2])
 
     const barajar= async ()=>{
-        /* setCharacters2([]) */
+        
         for (let i = 0; i < 6; i++) {
             const id=Math.floor(Math.random()*400);
             const {data}= await axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-rubencorba`)
             setCharacters2((oldChars) => [...oldChars, data.image]);
             setCharacters2((oldChars) => [...oldChars, data.image]);
-            
         }
-        /* setCharacters2(characters2.sort(()=>Math.random() - 0.5)) */
-        
     } 
     const mezclar= ()=>{
+        if (d===0) {
+            d=1
         const mezcladas=characters2.sort(()=>Math.random() - 0.5)
-        /* const mezcladas=characters2.sort((a, b)=> {if(a.id>b.id) return 1; else return -1})} */
-        
-        setCharacters2(mezcladas)
+        setCharacters2(mezcladas)}
     }
     const reiniciar= ()=>{
         setCharacters2([])
-        
     }
+
+    const arrayDeObjetos=[
+        {imagenFoto:characters2[0],id:1},
+        {imagenFoto:characters2[1],id:2},
+        {imagenFoto:characters2[2],id:3},
+        {imagenFoto:characters2[3],id:4},
+        {imagenFoto:characters2[4],id:5},
+        {imagenFoto:characters2[5],id:6},
+        {imagenFoto:characters2[6],id:7},
+        {imagenFoto:characters2[7],id:8},
+        {imagenFoto:characters2[8],id:9},
+        {imagenFoto:characters2[9],id:10},
+        {imagenFoto:characters2[10],id:11},
+        {imagenFoto:characters2[11],id:12}
+    ]
+
+
+
+
+
     
     
     return (
@@ -59,22 +61,26 @@ const Juego=(/* {barajar,characters2} */)=>{
                      {characters2.length!==0
                 ?<button /* disabled={characters2.length===0} */ onClick={()=>reiniciar()}>reiniciar</button>
                 :<button /* disabled={characters2.length!==0} */ onClick={()=>barajar()}>barajar</button>}
-                {/* <button onClick={()=>mezclar()}>mezclar</button> */}
-                {/* {characters2.map(({char})=>{return <img src={characters2[char]} alt="carta" />})} */}
-                {/* <div className="flip-card">
-                <div className="flip-card-inner">
-                <div className="flip-card-front">
-                   <img  src={imagen } alt="asd" />
-                </div>
-                <div className="flip-card-back">
-                    <img src={characters2[0]} alt="carta" />
-                </div>
-                </div>
-    
-                </div> */}
-                {characters2[0]? (
+
+                        <div className="card-grid">
+                        {characters2.length? (
+                        arrayDeObjetos.map(({imagenFoto,id})=>{
+                            return <CardDeJuego imagenFoto={imagenFoto} id={id}/>
+                        })
+                        ):(null)}
+                        </div>
+                        
+
+                
+                {/* {characters2.length? (
                     <div>
-                        <img src={characters2[0]} alt="carta" />
+                            {bocaArriba===false?
+                                (<button onClick={voltear}>
+                                    <img src={imagen } alt={name} />
+                                </button>):(<button onClick={voltear}> 
+                                    (<img src={characters2[0]} alt="carta" />)
+                                </button>)
+                                }
                 <img src={characters2[1]} alt="carta" />
                 <img src={characters2[2]} alt="carta" />
                 <img src={characters2[3]} alt="carta" />
@@ -91,19 +97,10 @@ const Juego=(/* {barajar,characters2} */)=>{
                     <div>
                         <img src={portal} alt={"portal"} />
                     </div>
-                )}
+                )} */}
                 
 
-                </div>
-                
-            {/* ):(
-                <div>
-                    <h1>Cargando Información...</h1>
-                    <img src={portal} alt={"portal"} />
-                </div>
-            )} */}
-
-            
+                </div>          
             
             
             
