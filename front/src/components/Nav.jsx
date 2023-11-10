@@ -17,14 +17,15 @@ const Nav= ({onSearch})=>{
 
 
             
+            <Link  className="juegoStyle" to='/juego'>
+                <button2>Jugar!!</button2>
+            </Link>
+
             <SearchBar onSearch={onSearch}  />
             <button  className="randomStyle" onClick={()=>onSearch(Math.floor(Math.random()*826))}>Random</button>
             <Link className="logOutStyle" to='/'>
                 <button>LogOut</button>
             </Link>
-            {/* <Link  to='/juego'>
-                <button>Jugar</button>
-            </Link> */}
         </div>
         )
 }

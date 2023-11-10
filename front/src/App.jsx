@@ -72,19 +72,7 @@ useEffect(() => {
     }
  }
 
- const [characters2,setCharacters2]= useState([])
  
- const barajar=async()=>{
-  /* setCharacters2([]) */
-    for (let i = 0; i < 6; i++) {
-      const id=Math.floor(Math.random()*500);
-      const {data}= await axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-rubencorba`)
-      setCharacters2((oldChars) => [...oldChars, data.image]);
-      setCharacters2((oldChars) => [...oldChars, data.image]);
-    }
-    setCharacters2(characters2.sort(()=>Math.random() - 0.5))
-    return characters2;
- }
 
 
 
@@ -101,7 +89,7 @@ useEffect(() => {
           <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>} />
           <Route path='/detail/:id' element={<Detail/>}/>
           <Route path='/favorites' element={<Favorites onClose={onClose}/>}/>
-          <Route path='/juego' element={<Juego barajar={barajar} characters2={characters2}/>}/>
+          <Route path='/juego' element={<Juego /* barajar={barajar} characters2={characters2} *//>}/>
           <Route path='*' element={<Error/>}/>
       </Routes>
         

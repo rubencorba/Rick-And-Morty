@@ -44,5 +44,3 @@ export const OrderCards=(orden)=>{
     return {type:ORDER, payload:orden}
 }
 
-
-
