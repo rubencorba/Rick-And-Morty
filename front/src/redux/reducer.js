@@ -1,10 +1,12 @@
-import {ADD_FAV,REMOVE_FAV,FILTER,ORDER,} from "./actions-types";
+import {ADD_FAV,REMOVE_FAV,FILTER,ORDER,PROBAR} from "./actions-types";
 
 
 
 const initialState={
     myFavorites: [],
     allCharacters: [],
+
+    cartasBocaArriba:[]
 
 }
 
@@ -31,7 +33,13 @@ export const reducer= (state=initialState,action)=>{
             if(action.payload=="Ascendente"){
                 return {...state,myFavorites:state.myFavorites.sort((a, b)=> {if(a.id>b.id) return 1; else return -1})}
             }else {return {...state,myFavorites:state.myFavorites.sort((a, b)=> {if(a.id>b.id) return -1; else return 1})}}
-
+        
+        case PROBAR:
+            if(state.cartasBocaArriba.length===3){return {...state,cartasBocaArriba: []}}
+            return ({
+                ...state,cartasBocaArriba:[...state.cartasBocaArriba,action.payload]
+            })    
+        
         default:
             return {...state}
     }

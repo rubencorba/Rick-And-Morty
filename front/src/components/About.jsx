@@ -15,7 +15,7 @@ const About=()=>{
     }
     return(
 
-        <div>
+        <div className='aboutStyle'>
             <Card
              key={me.id}
              name={me.name}

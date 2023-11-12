@@ -69,35 +69,6 @@ const Juego=()=>{
                         })
                         ):(null)}
                         </div>
-                        
-
-                
-                {/* {characters2.length? (
-                    <div>
-                            {bocaArriba===false?
-                                (<button onClick={voltear}>
-                                    <img src={imagen } alt={name} />
-                                </button>):(<button onClick={voltear}> 
-                                    (<img src={characters2[0]} alt="carta" />)
-                                </button>)
-                                }
-                <img src={characters2[1]} alt="carta" />
-                <img src={characters2[2]} alt="carta" />
-                <img src={characters2[3]} alt="carta" />
-                <img src={characters2[4]} alt="carta" />
-                <img src={characters2[5]} alt="carta" />
-                <img src={characters2[6]} alt="carta" />
-                <img src={characters2[7]} alt="carta" />
-                <img src={characters2[8]} alt="carta" />
-                <img src={characters2[9]} alt="carta" />
-                <img src={characters2[10]} alt="carta" />
-                <img src={characters2[11]} alt="carta" />
-                    </div>
-                ):(
-                    <div>
-                        <img src={portal} alt={"portal"} />
-                    </div>
-                )} */}
                 
 
                 </div>          
