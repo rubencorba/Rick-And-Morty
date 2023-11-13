@@ -13,7 +13,7 @@ const CardDeJuego=({imagenFoto,id,key})=>{
 
     const voltear=()=>{
         setBocaArriba(!bocaArriba)
-        dispatch(probarPar(imagenFoto,id))
+        setTimeout(()=>dispatch(probarPar(imagenFoto,id)),1000);
         return
     }
     useEffect(()=>{
