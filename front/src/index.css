@@ -31,7 +31,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
 
-  background-image: url('https://e1.pxfuel.com/desktop-wallpaper/442/188/desktop-wallpaper-aesthetic-ps4-rick-and-morty-rick-and-morty.jpg'); /*imagen de fondo */
+  background-image: url('https://wallpapertag.com/wallpaper/middle/7/b/a/272134-rick-and-morty-wallpaper-2048x1152-4k.jpg');
+  /* background-image: url('https://e1.pxfuel.com/desktop-wallpaper/442/188/desktop-wallpaper-aesthetic-ps4-rick-and-morty-rick-and-morty.jpg'); */ /*imagen de fondo */
   background-size: cover; /* Ajusta el tamaño de la imagen al tamaño de la ventana del navegador */
   background-position: center; /* Centra la imagen en la ventana del navegador */
   background-repeat: no-repeat;
@@ -275,6 +276,11 @@ transition: color .2s ease,background-color .2s ease,box-shadow .2s ease;
   /* width: 18%;
   height: 100%; */
   
+}
+
+.festejoStyle{
+  margin-top: 4rem;
+  width: 35rem;
 }
 
 

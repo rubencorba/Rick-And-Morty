@@ -4,5 +4,7 @@ export const FILTER="FILTER";
 export const ORDER="ORDER";
 
 export const PROBAR="PROBAR";
+export const REINICIAR_JUEGO="REINICIAR_JUEGO";
+
 
 

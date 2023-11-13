@@ -1,4 +1,4 @@
-import {ADD_FAV,REMOVE_FAV,FILTER,ORDER,PROBAR} from './actions-types'
+import {ADD_FAV,REMOVE_FAV,FILTER,ORDER,PROBAR,REINICIAR_JUEGO} from './actions-types'
 import axios from 'axios';
 
 /* export const addFav=(personaje)=>{
@@ -46,4 +46,7 @@ export const OrderCards=(orden)=>{
 
 export const probarPar=(imagen,id)=>{
    return {type:PROBAR, payload:{imagen:imagen, id:id}}
+}
+export const reiniciarJuego=()=>{
+   return {type:REINICIAR_JUEGO}
 }

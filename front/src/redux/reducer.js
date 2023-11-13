@@ -1,4 +1,4 @@
-import {ADD_FAV,REMOVE_FAV,FILTER,ORDER,PROBAR} from "./actions-types";
+import {ADD_FAV,REMOVE_FAV,FILTER,ORDER,PROBAR,REINICIAR_JUEGO} from "./actions-types";
 
 
 
@@ -56,7 +56,10 @@ export const reducer= (state=initialState,action)=>{
             /* return ({
                 ...state,cartasBocaArriba:[...state.cartasBocaArriba,action.payload]
             })    */ 
-        
+        case REINICIAR_JUEGO:
+            return {...state,
+                cartasBocaArriba:[],
+                cartaArriba:null}
         default:
             return {...state}
     }

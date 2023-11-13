@@ -3,9 +3,12 @@ import portal from './portal-rick-and-morty.gif'
 import { useEffect,useState } from 'react'
 import axios from 'axios'
 import CardDeJuego from './CardDeJuego'
+import { useSelector,useDispatch } from "react-redux";
+import festejo from './UKb9.gif'
+import { reiniciarJuego } from "../redux/action";
 
 const Juego=()=>{
-
+    const dispatch = useDispatch();
     const [characters2,setCharacters2]= useState([])
 
     
@@ -33,6 +36,7 @@ const Juego=()=>{
     }
     const reiniciar= ()=>{
         setCharacters2([])
+        dispatch(reiniciarJuego())
     }
 
     /* const arrayDeObjetos=[
@@ -51,13 +55,16 @@ const Juego=()=>{
     ] */
 
 
-
+    const cartasBocaArriba = useSelector((state) => state.cartasBocaArriba);
+    
 
 
     
     
     return (
         <div>
+            {cartasBocaArriba.length<12?
+            
                 <div>
                     
                      {characters2.length!==0
@@ -78,6 +85,18 @@ const Juego=()=>{
                 
 
                 </div>          
+            :<div>
+                <div>
+                    {characters2.length!==0
+                    ?<button /* disabled={characters2.length===0} */ onClick={()=>reiniciar()}>reiniciar</button>
+                    :<button /* disabled={characters2.length!==0} */ onClick={()=>barajar()}>barajar</button>}
+                </div>
+                <div>
+                    <img className='festejoStyle' src={festejo} alt="festejo" />
+                </div>
+                
+            </div>
+            }
             
             
             
