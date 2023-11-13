@@ -3,7 +3,7 @@ import imagen from './tapaCarta.jpeg'
 import { useSelector,useDispatch } from "react-redux";
 import { probarPar } from "../redux/action";
 
-const CardDeJuego=({imagenFoto,id})=>{
+const CardDeJuego=({imagenFoto,id,key})=>{
 
     const dispatch = useDispatch();
 
@@ -12,13 +12,13 @@ const CardDeJuego=({imagenFoto,id})=>{
     const [bocaArriba,setBocaArriba]=useState(false)
 
     const voltear=()=>{
-        dispatch(probarPar(imagenFoto,id))
         setBocaArriba(!bocaArriba)
+        dispatch(probarPar(imagenFoto,id))
         return
     }
     useEffect(()=>{
         
-        if(!cartasBocaArriba.find((card)=>card.id==id)){setBocaArriba(false)}
+        if(!cartasBocaArriba.find((card)=>card.id.ide==id.ide)){setBocaArriba(false)}
     },[cartasBocaArriba])
 
     return (
@@ -26,9 +26,9 @@ const CardDeJuego=({imagenFoto,id})=>{
             
             {bocaArriba===false?
                                 (<button2 onClick={voltear}>
-                                    <img className='cardJuegoStyle'src={imagen} alt="RyM" /* width={200} *//>
-                                </button2>):(<button2 onClick={voltear}> 
-                                    <img className='cardJuegoStyle'src={imagenFoto} alt="carta" /* width={200} *//>
+                                    <img className='cardJuegoStyle'src={imagen} alt="RyM" />
+                                </button2>):(<button2 /* onClick={voltear} */> 
+                                    <img className='cardJuegoStyle'src={imagenFoto} alt="carta" />
                                 </button2>)
                                 }
         </div>

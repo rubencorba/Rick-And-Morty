@@ -8,10 +8,11 @@ const Juego=()=>{
 
     const [characters2,setCharacters2]= useState([])
 
-    let d=0
+    
     useEffect(()=>{
-        
-        mezclar();
+        /* if (characters2.length===11) */ 
+        /* setTimeout(mezclar(),3000) */
+        mezclar()
     },[characters2])
 
     const barajar= async ()=>{
@@ -19,10 +20,11 @@ const Juego=()=>{
         for (let i = 0; i < 6; i++) {
             const id=Math.floor(Math.random()*400);
             const {data}= await axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-rubencorba`)
-            setCharacters2((oldChars) => [...oldChars, data.image]);
-            setCharacters2((oldChars) => [...oldChars, data.image]);
+            setCharacters2((oldChars) => [...oldChars, {image:data.image,id:{ide:data.id,key:i}}]);
+            setCharacters2((oldChars) => [...oldChars, {image:data.image,id:{ide:data.id,key:i+1}}]);
         }
     } 
+    let d=0;
     const mezclar= ()=>{
         if (d===0) {
             d=1
@@ -33,20 +35,20 @@ const Juego=()=>{
         setCharacters2([])
     }
 
-    const arrayDeObjetos=[
-        {imagenFoto:characters2[0],id:1},
-        {imagenFoto:characters2[1],id:2},
-        {imagenFoto:characters2[2],id:3},
-        {imagenFoto:characters2[3],id:4},
-        {imagenFoto:characters2[4],id:5},
-        {imagenFoto:characters2[5],id:6},
-        {imagenFoto:characters2[6],id:7},
-        {imagenFoto:characters2[7],id:8},
-        {imagenFoto:characters2[8],id:9},
-        {imagenFoto:characters2[9],id:10},
-        {imagenFoto:characters2[10],id:11},
-        {imagenFoto:characters2[11],id:12}
-    ]
+    /* const arrayDeObjetos=[
+        {imagenFoto:characters2[0].image, id:characters2[0].id,key:1},
+        {imagenFoto:characters2[1].image,id:characters2[1].id,key:2},
+        {imagenFoto:characters2[2].image,id:characters2[2].id,key:3},
+        {imagenFoto:characters2[3].image,id:characters2[3].id,key:4},
+        {imagenFoto:characters2[4].image,id:characters2[4].id,key:5},
+        {imagenFoto:characters2[5].image,id:characters2[5].id,key:6},
+        {imagenFoto:characters2[6].image,id:characters2[6].id,key:7},
+        {imagenFoto:characters2[7].image,id:characters2[7].id,key:8},
+        {imagenFoto:characters2[8].image,id:characters2[8].id,key:9},
+        {imagenFoto:characters2[9].image,id:characters2[9].id,key:10},
+        {imagenFoto:characters2[10].image,id:characters2[10].id,key:11},
+        {imagenFoto:characters2[11].image,id:characters2[11].id,key:12}
+    ] */
 
 
 
@@ -63,11 +65,15 @@ const Juego=()=>{
                 :<button /* disabled={characters2.length!==0} */ onClick={()=>barajar()}>barajar</button>}
 
                         <div className="card-grid">
-                        {characters2.length? (
-                        arrayDeObjetos.map(({imagenFoto,id})=>{
-                            return <CardDeJuego imagenFoto={imagenFoto} id={id}/>
+                        {characters2.length===12? (
+                        characters2.map(({image,id,key})=>{
+                            return <CardDeJuego imagenFoto={image} id={id} /* key={key} *//>
                         })
-                        ):(null)}
+                        ):null}
+                        </div>
+                        <div>
+                            {characters2.length>1&&characters2.length<12?
+                            <img /* className='cardJuegoStyle' */src={portal} alt="portal" />:null}
                         </div>
                 
 
