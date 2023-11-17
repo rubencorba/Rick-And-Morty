@@ -11,11 +11,14 @@ const Juego=()=>{
     const dispatch = useDispatch();
     const [characters2,setCharacters2]= useState([])
 
-    
+    let d=0;
     useEffect(()=>{
         /* if (characters2.length===11) */ 
         /* setTimeout(mezclar(),3000) */
-        mezclar()
+        /* if (d===0){
+            d=1;
+        } */
+        mezclar();
     },[characters2])
 
     const barajar= async ()=>{
@@ -27,12 +30,12 @@ const Juego=()=>{
             setCharacters2((oldChars) => [...oldChars, {image:data.image,id:{ide:data.id,key:i+1}}]);
         }
     } 
-    let d=0;
+    
     const mezclar= ()=>{
-        if (d===0) {
-            d=1
+        /* if (d===0) {
+            d=1 */
         const mezcladas=characters2.sort(()=>Math.random() - 0.5)
-        setCharacters2(mezcladas)}
+        setCharacters2(mezcladas)/* } */
     }
     const reiniciar= ()=>{
         setCharacters2([])
