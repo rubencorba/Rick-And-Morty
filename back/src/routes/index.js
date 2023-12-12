@@ -13,4 +13,7 @@ router.post("/fav",postFav)
 router.delete("/fav/:id",deleteFavs)
 
 
+router.get("/juego",getChars)
+
+
 module.exports= router;
