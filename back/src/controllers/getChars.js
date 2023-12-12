@@ -1,5 +1,5 @@
 const getChars= async (req,res)=>{
-    try {
+    /* try {
         const {id} =req.params;
         const {data}=await axios.get(`https://rym2.up.railway.app/api/character/${id}?key=pi-rubencorba`)
         
@@ -18,7 +18,7 @@ const getChars= async (req,res)=>{
         return res.status(404).send('Not found')
     } catch (error) {
         (error)=> res.status(500).send(error.message)
-    }
+    } */
         
         
         
