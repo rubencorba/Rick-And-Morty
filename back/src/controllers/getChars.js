@@ -1,4 +1,12 @@
 const getChars= async (req,res)=>{
+
+
+    for (let i = 0; i < 6; i++) {
+        const id=Math.floor(Math.random()*400);
+        const {data}= await axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-rubencorba`)
+        setCharacters2((oldChars) => [...oldChars, {image:data.image,id:{ide:data.id,key:i}}]);
+        setCharacters2((oldChars) => [...oldChars, {image:data.image,id:{ide:data.id,key:i+1}}]);
+    }
     /* try {
         const {id} =req.params;
         const {data}=await axios.get(`https://rym2.up.railway.app/api/character/${id}?key=pi-rubencorba`)
