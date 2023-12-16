@@ -47,6 +47,7 @@ export const OrderCards=(orden)=>{
 export const probarPar=(imagen,id)=>{
    return {type:PROBAR, payload:{imagen:imagen, id:id}}
 }
+
 export const reiniciarJuego=()=>{
    return {type:REINICIAR_JUEGO}
 }
