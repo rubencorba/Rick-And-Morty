@@ -40,6 +40,7 @@ export const removeFav = (id) => {
 export const FilterCards=(gender)=>{
     return {type:FILTER, payload:gender}
 }
+
 export const OrderCards=(orden)=>{
     return {type:ORDER, payload:orden}
 }
