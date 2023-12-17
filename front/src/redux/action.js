@@ -58,9 +58,10 @@ export const getCharsByGame = () => {
       const endpoint = 'http://localhost:3001/rickandmorty/juego';
       return async (dispatch) => {
          const {data}= await axios.get(endpoint);
+         const mezcladas=data.sort(()=>Math.random() - 0.5)
             return dispatch({
                type: GET_CHARS_GAME,
-               payload: data,
+               payload: mezcladas,
             });
          };
       
