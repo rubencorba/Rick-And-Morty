@@ -1,4 +1,4 @@
-import {ADD_FAV,REMOVE_FAV,FILTER,ORDER,PROBAR,REINICIAR_JUEGO} from './actions-types'
+import {ADD_FAV,REMOVE_FAV,FILTER,ORDER,PROBAR,REINICIAR_JUEGO,GET_CHARS_GAME} from './actions-types'
 import axios from 'axios';
 
 /* export const addFav=(personaje)=>{
@@ -52,3 +52,19 @@ export const probarPar=(imagen,id)=>{
 export const reiniciarJuego=()=>{
    return {type:REINICIAR_JUEGO}
 }
+
+export const getCharsByGame = () => {
+   try {
+      const endpoint = 'http://localhost:3001/rickandmorty/juego';
+      return async (dispatch) => {
+         const {data}= await axios.get(endpoint);
+            return dispatch({
+               type: GET_CHARS_GAME,
+               payload: data,
+            });
+         };
+      
+   } catch (error) {
+      console.log(error);
+   }
+ };
