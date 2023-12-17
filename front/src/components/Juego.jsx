@@ -5,7 +5,7 @@ import axios from 'axios'
 import CardDeJuego from './CardDeJuego'
 import { useSelector,useDispatch } from "react-redux";
 import festejo from './UKb9.gif'
-import { reiniciarJuego } from "../redux/action";
+import { getCharsByGame, reiniciarJuego } from "../redux/action";
 
 const Juego=()=>{
     const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const Juego=()=>{
     },[characters2])
 
     const barajar= async ()=>{
-        
+        dispatch(getCharsByGame())
         for (let i = 0; i < 6; i++) {
             const id=Math.floor(Math.random()*400);
             const {data}= await axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-rubencorba`)

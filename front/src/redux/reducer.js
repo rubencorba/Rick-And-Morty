@@ -1,4 +1,4 @@
-import {ADD_FAV,REMOVE_FAV,FILTER,ORDER,PROBAR,REINICIAR_JUEGO} from "./actions-types";
+import {ADD_FAV,REMOVE_FAV,FILTER,ORDER,PROBAR,REINICIAR_JUEGO, GET_CHARS_GAME} from "./actions-types";
 
 
 
@@ -7,7 +7,9 @@ const initialState={
     allCharacters: [],
 
     cartasBocaArriba:[],
-    cartaArriba:null
+    cartaArriba:null,
+
+    charsByGame:[]
 
 }
 
@@ -60,6 +62,9 @@ export const reducer= (state=initialState,action)=>{
             return {...state,
                 cartasBocaArriba:[],
                 cartaArriba:null}
+        case GET_CHARS_GAME:
+            console.log(action.payload)
+            return {...state,charsByGame:action.payload}
         default:
             return {...state}
     }
