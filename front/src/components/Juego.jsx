@@ -41,22 +41,6 @@ const Juego=()=>{
         dispatch(reiniciarJuego())
     }
 
-    /* const arrayDeObjetos=[
-        {imagenFoto:characters2[0].image, id:characters2[0].id,key:1},
-        {imagenFoto:characters2[1].image,id:characters2[1].id,key:2},
-        {imagenFoto:characters2[2].image,id:characters2[2].id,key:3},
-        {imagenFoto:characters2[3].image,id:characters2[3].id,key:4},
-        {imagenFoto:characters2[4].image,id:characters2[4].id,key:5},
-        {imagenFoto:characters2[5].image,id:characters2[5].id,key:6},
-        {imagenFoto:characters2[6].image,id:characters2[6].id,key:7},
-        {imagenFoto:characters2[7].image,id:characters2[7].id,key:8},
-        {imagenFoto:characters2[8].image,id:characters2[8].id,key:9},
-        {imagenFoto:characters2[9].image,id:characters2[9].id,key:10},
-        {imagenFoto:characters2[10].image,id:characters2[10].id,key:11},
-        {imagenFoto:characters2[11].image,id:characters2[11].id,key:12}
-    ] */
-
-
     const cartasBocaArriba = useSelector((state) => state.cartasBocaArriba);
     
 
