@@ -11,7 +11,7 @@ const Juego=()=>{
     const dispatch = useDispatch();
     const [characters2,setCharacters2]= useState([])
 
-    let d=0;
+    
     useEffect(()=>{
         /* if (characters2.length===11) */ 
         /* setTimeout(mezclar(),3000) */
@@ -21,6 +21,7 @@ const Juego=()=>{
         /* mezclar(); */
     },[characters2])
 
+    const [b,setB]= useState(0)
     const barajar= async ()=>{
         dispatch(getCharsByGame())
         /* for (let i = 0; i < 6; i++) {
@@ -29,6 +30,7 @@ const Juego=()=>{
             setCharacters2((oldChars) => [...oldChars, {image:data.image,id:{ide:data.id,key:i}}]);
             setCharacters2((oldChars) => [...oldChars, {image:data.image,id:{ide:data.id,key:i+1}}]);
         } */
+        setB(1);
     } 
     
     /* const mezclar= ()=>{
@@ -53,29 +55,32 @@ const Juego=()=>{
             
                 <div>
                     
-                     {/* characters2 */charsByGame.length!==0
-                ?<button /* disabled={characters2.length===0} */ onClick={()=>reiniciar()}>reiniciar</button>
-                :<button /* disabled={characters2.length!==0} */ onClick={()=>barajar()}>barajar</button>}
+                     {charsByGame.length!==0
+                ?<button onClick={()=>reiniciar()}>reiniciar</button>
+                :<button onClick={()=>barajar()}>barajar</button>}
 
+                {b===1?(
+                    <div>
                         <div className="card-grid">
-                        {/* characters2 */charsByGame.length===12? (
-                        /* characters2 */charsByGame.map(({image,id,key})=>{
-                            return <CardDeJuego imagenFoto={image} id={id} /* key={key} *//>
+                        {charsByGame.length===12? (
+                        charsByGame.map(({image,id,key})=>{
+                            return <CardDeJuego imagenFoto={image} id={id} />
                         })
                         ):null}
                         </div>
                         <div>
-                            {/* characters2 */charsByGame.length>1&&/* characters2 */charsByGame.length<12?
-                            <img /* className='cardJuegoStyle' */src={portal} alt="portal" />:null}
+                            {charsByGame.length!==0?null:
+                            <img src={portal} alt="portal" />}
                         </div>
-                
+                    </div> 
+                ):null}
 
                 </div>          
             :<div>
                 <div>
-                    {/* characters2 */charsByGame.length!==0
-                    ?<button /* disabled={characters2.length===0} */ onClick={()=>reiniciar()}>reiniciar</button>
-                    :<button /* disabled={characters2.length!==0} */ onClick={()=>barajar()}>barajar</button>}
+                    {charsByGame.length!==0
+                    ?<button onClick={()=>reiniciar()}>reiniciar</button>
+                    :<button onClick={()=>barajar()}>barajar</button>}
                 </div>
                 <div>
                     <img className='festejoStyle' src={festejo} alt="festejo" />
