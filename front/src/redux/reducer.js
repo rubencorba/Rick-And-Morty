@@ -61,7 +61,8 @@ export const reducer= (state=initialState,action)=>{
         case REINICIAR_JUEGO:
             return {...state,
                 cartasBocaArriba:[],
-                cartaArriba:null}
+                cartaArriba:null,
+                charsByGame:[]}
         case GET_CHARS_GAME:
             console.log(action.payload)
             return {...state,charsByGame:action.payload}
