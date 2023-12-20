@@ -38,7 +38,6 @@ export const reducer= (state=initialState,action)=>{
             }else {return {...state,myFavorites:state.myFavorites.sort((a, b)=> {if(a.id>b.id) return -1; else return 1})}}
         
         case PROBAR:
-            /* if(state.cartasBocaArriba.length===3){return {...state,cartasBocaArriba: []}} */
             if (state.cartaArriba===null){
                 return {...state,
                     cartaArriba:action.payload,
@@ -50,14 +49,10 @@ export const reducer= (state=initialState,action)=>{
                         cartaArriba:null})
                 }else{
                     return ({...state,
-                        /* cartasBocaArriba:state.cartasBocaArriba.splice(state.cartasBocaArriba.length-1,1) */
                         cartasBocaArriba:state.cartasBocaArriba.filter((card)=>card.id.ide!==state.cartaArriba.id.ide),
                         cartaArriba:null})
                 }
-            }
-            /* return ({
-                ...state,cartasBocaArriba:[...state.cartasBocaArriba,action.payload]
-            })    */ 
+            } 
         case REINICIAR_JUEGO:
             return {...state,
                 cartasBocaArriba:[],
