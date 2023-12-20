@@ -41,6 +41,7 @@ const Juego=()=>{
     const reiniciar= ()=>{
         setCharacters2([])
         dispatch(reiniciarJuego())
+        setB(0);
     }
 
     const cartasBocaArriba = useSelector((state) => state.cartasBocaArriba);
