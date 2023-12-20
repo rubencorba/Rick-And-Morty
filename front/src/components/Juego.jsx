@@ -1,52 +1,28 @@
-
 import portal from './portal-rick-and-morty.gif'
-import { useEffect,useState } from 'react'
-import axios from 'axios'
+import { useState } from 'react'
 import CardDeJuego from './CardDeJuego'
 import { useSelector,useDispatch } from "react-redux";
 import festejo from './UKb9.gif'
 import { getCharsByGame, reiniciarJuego } from "../redux/action";
 
 const Juego=()=>{
+
     const dispatch = useDispatch();
-    const [characters2,setCharacters2]= useState([])
-
-    
-    useEffect(()=>{
-        /* if (characters2.length===11) */ 
-        /* setTimeout(mezclar(),3000) */
-        /* if (d===0){
-            d=1;
-        } */
-        /* mezclar(); */
-    },[characters2])
-
     const [b,setB]= useState(0)
+
+
     const barajar= async ()=>{
         dispatch(getCharsByGame())
-        /* for (let i = 0; i < 6; i++) {
-            const id=Math.floor(Math.random()*400);
-            const {data}= await axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-rubencorba`)
-            setCharacters2((oldChars) => [...oldChars, {image:data.image,id:{ide:data.id,key:i}}]);
-            setCharacters2((oldChars) => [...oldChars, {image:data.image,id:{ide:data.id,key:i+1}}]);
-        } */
         setB(1);
     } 
     
-    /* const mezclar= ()=>{
-        
-        const mezcladas=characters2.sort(()=>Math.random() - 0.5)
-        setCharacters2(mezcladas)
-    } */
+    
     const reiniciar= ()=>{
-        setCharacters2([])
         dispatch(reiniciarJuego())
         setB(0);
     }
 
     const cartasBocaArriba = useSelector((state) => state.cartasBocaArriba);
-    
-
     const charsByGame = useSelector((state) => state.charsByGame);
     
     
