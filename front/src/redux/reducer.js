@@ -1,7 +1,6 @@
 import {ADD_FAV,REMOVE_FAV,FILTER,ORDER,PROBAR,REINICIAR_JUEGO, GET_CHARS_GAME} from "./actions-types";
 
 
-
 const initialState={
     myFavorites: [],
     allCharacters: [],
