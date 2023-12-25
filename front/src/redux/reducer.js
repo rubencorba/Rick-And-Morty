@@ -10,7 +10,6 @@ const initialState={
     cartaArriba:null,
 
     charsByGame:[]
-
 }
 
 export const reducer= (state=initialState,action)=>{
