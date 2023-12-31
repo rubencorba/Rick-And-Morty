@@ -51,7 +51,6 @@ export const reducer= (state=initialState,action)=>{
                 cartaArriba:null,
                 charsByGame:[]}
         case GET_CHARS_GAME:
-            console.log(action.payload)
             return {...state,charsByGame:action.payload}
         default:
             return {...state}
