@@ -1,9 +1,7 @@
 import {ADD_FAV,REMOVE_FAV,FILTER,ORDER,PROBAR,REINICIAR_JUEGO,GET_CHARS_GAME} from './actions-types'
 import axios from 'axios';
 
-/* export const addFav=(personaje)=>{
-    return {type:ADD_FAV, payload:personaje}
-} */
+
 export const addFav = (character) => {
    try {
       const endpoint = 'http://localhost:3001/rickandmorty/fav';
