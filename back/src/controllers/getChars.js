@@ -14,13 +14,8 @@ const getChars= async (req,res)=>{
 
         return res.status(200).json(charsForGame)
         
-        
-
     } catch (error) {
         (error)=> res.status(500).send(error.message)
     }
-        
-        
-        
 }
 module.exports={getChars}
