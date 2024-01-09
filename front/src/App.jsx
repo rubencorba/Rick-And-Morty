@@ -70,10 +70,6 @@ const onSearch= async (id)=> {
     }
 }
 
- 
-
-
-
  let location=useLocation();
   return (
     <div>
@@ -96,8 +92,4 @@ const onSearch= async (id)=> {
   
 }
 
-
-
 export default App
-
-//path='*' para que se muestre en todas las rutas
