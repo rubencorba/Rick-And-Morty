@@ -52,7 +52,7 @@ useEffect(() => {
   !access && navigate('/');
 }, [access]);
 
-  const onSearch= async (id)=> {
+const onSearch= async (id)=> {
     try {
       let b=0;
       const {data}= await axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-rubencorba`)
@@ -70,7 +70,7 @@ useEffect(() => {
     } catch (error) {
       throw new Error('Error!');
     }
- }
+}
 
  
 
