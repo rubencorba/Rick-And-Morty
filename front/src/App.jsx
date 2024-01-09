@@ -74,11 +74,10 @@ const onSearch= async (id)=> {
 
 
 
- let location=useLocation();  //const {pathname} = useLocation()
+ let location=useLocation();
   return (
     <div>
     
-      {/* {location.pathname!=='/'? (<Nav onSearch={onSearch}/>):(<>Welcome</>)} */}
       {location.pathname !== '/' && <Nav onSearch={onSearch}/>}
       
       <Routes>
