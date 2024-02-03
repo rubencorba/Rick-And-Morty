@@ -50,10 +50,7 @@ const Detail=()=>{
                 </div>
                 
             )}
-        </div>
-        
+        </div>   
     )
-    
-    
 }
 export default Detail;
