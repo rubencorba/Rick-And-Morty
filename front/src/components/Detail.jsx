@@ -39,9 +39,6 @@ const Detail=()=>{
                     <h1>Gender: {character.gender}</h1>
                     <h1>Origin: {character.origin.name}</h1>
                     </div>
-
-                
-                
             </div>
             ):(
                 <div>
