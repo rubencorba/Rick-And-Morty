@@ -1,4 +1,4 @@
-import {ADD_FAV,REMOVE_FAV,FILTER,ORDER,PROBAR,REINICIAR_JUEGO,GET_CHARS_GAME} from './actions-types'
+import {FILTER,ORDER,PROBAR,REINICIAR_JUEGO,GET_CHARS_GAME} from './actions-types'
 import axios from 'axios';
 
 
