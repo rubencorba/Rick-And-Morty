@@ -16,8 +16,7 @@ const CardDeJuego=({imagenFoto,id,key})=>{
         setTimeout(()=>dispatch(probarPar(imagenFoto,id)),1000);
         return
     }
-    useEffect(()=>{
-        
+    useEffect(()=>{        
         if(!cartasBocaArriba.find((card)=>card.id.ide==id.ide)){setBocaArriba(false)}
     },[cartasBocaArriba])
 
