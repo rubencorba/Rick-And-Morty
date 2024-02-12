@@ -22,9 +22,6 @@ const getCharById= async (req,res)=>{
     } catch (error) {
         (error)=> res.status(500).send(error.message)
     }
-        
-        
-        
 }
 
 module.exports={
