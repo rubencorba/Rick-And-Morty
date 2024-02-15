@@ -5,7 +5,6 @@ export const ORDER="ORDER";
 
 export const PROBAR="PROBAR";
 export const REINICIAR_JUEGO="REINICIAR_JUEGO";
-
 export const GET_CHARS_GAME='GET_CHARS_GAME';
 
 
