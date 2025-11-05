@@ -33,12 +33,12 @@ function App() {
 
 const login= async (userData)=> {
   try {
-    const { email, password } = userData;
+    /* const { email, password } = userData;
     const URL = 'http://localhost:3001/rickandmorty/login/';
     const {data}= await axios(URL + `?email=${email}&password=${password}`)
     const { access } = data;
     setAccess(access);
-    access && navigate('/home');
+    access && */ navigate('/home');
     
   } catch (error) {
     throw new Error('Error!');

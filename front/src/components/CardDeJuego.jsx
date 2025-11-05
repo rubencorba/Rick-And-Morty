@@ -1,36 +1,41 @@
 import { useEffect,useState } from 'react';
 import imagen from './tapaCarta.jpeg'
-import { useSelector,useDispatch } from "react-redux";
-import { probarPar } from "../redux/action";
 
-const CardDeJuego=({imagenFoto,id,key})=>{
+const CardDeJuego = ({ imagenFoto, id, cartaSeleccionada, setCartaSeleccionada }) => {
+  const [bocaArriba, setBocaArriba] = useState(false);
 
-    const dispatch = useDispatch();
+  const voltear = () => {
+    // Evita voltear más de dos cartas a la vez
+    if (bocaArriba || cartaSeleccionada.length === 2) return;
 
-    const cartasBocaArriba = useSelector((state) => state.cartasBocaArriba);
+    setBocaArriba(true);
+    setCartaSeleccionada((prev) => [...prev, { id, imagenFoto }]);
+  };
 
-    const [bocaArriba,setBocaArriba]=useState(false)
-
-    const voltear=()=>{
-        setBocaArriba(!bocaArriba)
-        setTimeout(()=>dispatch(probarPar(imagenFoto,id)),1000);
-        return
+  // Efecto para voltear las cartas que no hacen par
+  useEffect(() => {
+    if (cartaSeleccionada.length === 2) {
+      const [primera, segunda] = cartaSeleccionada;
+      // Si no hacen par, las giramos después de 1s
+      if (primera.id.ide !== segunda.id.ide) {
+        setTimeout(() => {
+          if (bocaArriba && (id.ide === primera.id.ide || id.ide === segunda.id.ide)) {
+            setBocaArriba(false);
+          }
+        }, 1000);
+      }
     }
-    useEffect(()=>{        
-        if(!cartasBocaArriba.find((card)=>card.id.ide==id.ide)){setBocaArriba(false)}
-    },[cartasBocaArriba])
+  }, [cartaSeleccionada]);
 
-    return (
-        <div /* className='cardJuegoStyle' */>
-            
-            {bocaArriba===false?
-                                (<button2 onClick={voltear}>
-                                    <img className='cardJuegoStyle'src={imagen} alt="RyM" />
-                                </button2>):(<button2 /* onClick={voltear} */> 
-                                    <img className='cardJuegoStyle'src={imagenFoto} alt="carta" />
-                                </button2>)
-                                }
-        </div>
-    )
-}
+  return (
+    <div onClick={voltear}>
+      <img
+        className="cardJuegoStyle"
+        src={bocaArriba ? imagenFoto : imagen}
+        alt="carta"
+      />
+    </div>
+  );
+};
+
 export default CardDeJuego;

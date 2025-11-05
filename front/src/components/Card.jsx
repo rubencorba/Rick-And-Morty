@@ -4,25 +4,39 @@ import { addFav,removeFav } from "../redux/action";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 
-const Card = ({id, name, status, gender, species, origin, image, onClose}) => {
+const Card = ({ id, name, status, gender, species, origin, image, onClose }) => {
+  const dispatch = useDispatch();
+  // seleccionar los favoritos reales desde el store
+  const myFavorites = useSelector((state) => state.myFavorites);
 
-   const myFavorites = useSelector((state) => state.allCharacters);
-   const dispatch = useDispatch();
+  const [isFav, setIsFav] = useState(false);
 
-   const [isFav,setIsFav]= useState(false)
-   
-   const handleFavorite = () => {
-      isFav ? dispatch(removeFav(id)) : dispatch(addFav({ id, name, status, gender, species, origin, image, onClose }))
-      setIsFav(!isFav)
-   };
-   
-   useEffect(() => {
-      myFavorites.forEach((fav) => {
-         if (fav.id === id) {
-            setIsFav(true);
-         }
-      });
-   }, [myFavorites]);
+  // cuando cambia myFavorites, actualizamos isFav (derivado del store)
+  useEffect(() => {
+    const found = myFavorites.some((fav) => fav.id === id);
+    setIsFav(found);
+  }, [myFavorites, id]);
+
+  const handleFavorite = () => {
+    if (isFav) {
+      dispatch(removeFav(id));
+    } else {
+      dispatch(
+        addFav({
+          id,
+          name,
+          status,
+          gender,
+          species,
+          origin,
+          image,
+          onClose,
+        })
+      );
+    }
+    // NO hacemos setIsFav(!isFav) aquí — dejamos que el store actualice y el useEffect lo refleje.
+  };
+
    
 
    return (

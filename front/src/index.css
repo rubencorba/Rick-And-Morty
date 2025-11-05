@@ -212,12 +212,16 @@ button:focus-visible {
   width:10rem
 }
 .formStyle{
-  width:19rem;
-  height: 20rem;
-  /* display: grid; */
-  position:relative;
+  /* width:19rem;
+  height: 20rem; */
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* position:relative;
   margin-top: 5rem;
-  margin-left: 26rem;
+  margin-left: 26rem; */
   border: 3px solid transparent;
   border-color: #535bf2;
   border-radius: 2rem;
@@ -268,7 +272,7 @@ transition: color .2s ease,background-color .2s ease,box-shadow .2s ease;
   width: 195px;
   height: 195px;
   /* padding-left: 0rem; */
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   /* margin-left: 3.5rem; */
   /* margin-right: 3.5rem; */
   /* margin-bottom: 7rem; */
@@ -281,6 +285,10 @@ transition: color .2s ease,background-color .2s ease,box-shadow .2s ease;
 .festejoStyle{
   margin-top: 4rem;
   width: 35rem;
+}
+
+.botonPrincipal{
+  margin-bottom: 2rem;
 }
 
 
