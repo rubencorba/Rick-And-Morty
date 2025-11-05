@@ -40,11 +40,11 @@ const Form =({login})=>{
                 <img src={tittlef} alt="Bienvenido!!" />
             </div>
             <form className="formformStyle" onSubmit={handleSubmit}>
-            <label >Email: </label>
+            <label className="labelForm">Email: </label>
             <input placeholder='example@gmail.com' className="input1" type="text" value={userData.email} name='email' onChange={handleChange}/>
             {userData.email !== ''? <>{errors.email}</> : ''} {/* Para que me muestre X estando vacío usar errors no userData */}
             <br />
-            <label >Password: </label>
+            <label className="labelForm">Password: </label>
             <input placeholder='*******' type="password" className="input1" value={userData.password} name='password' onChange={handleChange}/>
             {userData.password !== ''? <>{errors.password}</> : ''}
             <br />

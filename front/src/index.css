@@ -175,7 +175,7 @@ button:focus-visible {
   margin-inline: 1rem;
 }
 .searchStyle{
-  margin-left: 6rem;
+  margin-left: 5rem;
 }
 .agregarStyle{
   margin-inline: 1rem;
@@ -214,7 +214,7 @@ button:focus-visible {
 .formStyle{
   /* width:19rem;
   height: 20rem; */
-  height: 30rem;
+  height: 25rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -229,6 +229,9 @@ button:focus-visible {
 }
 .formformStyle{
   margin-top: 2rem;
+}
+.labelForm{
+  color: black;
 }
 label{
   display: inline-block;
